@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://c8amfxmmxyj51"]
+
+[ext_resource type="Script" uid="uid://bg8ejnoykde6s" path="res://addons/MLobby/Nodes/LobbyMember.cs" id="1_fle8m"]
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_ly2rs"]
+properties/0/path = NodePath(".:peerID")
+properties/0/spawn = true
+properties/0/replication_mode = 2
+properties/1/path = NodePath(".:state")
+properties/1/spawn = true
+properties/1/replication_mode = 2
+
+[node name="LobbyMember" type="Node"]
+script = ExtResource("1_fle8m")
+metadata/_custom_type_script = "uid://bg8ejnoykde6s"
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_interval = 0.016
+delta_interval = 0.016
+replication_config = SubResource("SceneReplicationConfig_ly2rs")
