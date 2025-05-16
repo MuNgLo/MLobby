@@ -1,5 +1,5 @@
 using Godot;
-namespace GDLobby;
+namespace MLobby;
 
 [GlobalClass]
 public partial class LobbyMember : Node

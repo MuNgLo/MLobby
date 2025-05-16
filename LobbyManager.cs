@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Net;
 using System.Threading.Tasks;
 
-namespace GDLobby;
+namespace MLobby;
 /// <summary>
 /// The LobbyManager is to usher new connections in and once they are ready
 /// inform the gamelogic there is a new player ready to join the game.

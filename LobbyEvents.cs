@@ -1,7 +1,7 @@
 using System;
 using Godot;
 
-namespace GDLobby;
+namespace MLobby;
 /// <summary>
 /// GDLobby related events
 /// The RPC side is handled inside the Lobby so these can be raised on all or specific client from there

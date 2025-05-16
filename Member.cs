@@ -1,6 +1,5 @@
 using Godot;
-using Munglo.Commons;
-namespace Munglo.GDLobby;
+namespace MLobby;
 
 [GlobalClass]
 internal partial class Member : Node
