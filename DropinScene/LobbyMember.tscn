@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://c8amfxmmxyj51"]
 
-[ext_resource type="Script" uid="uid://3wmie1jkee1" path="res://addons/MLobby/Nodes/LobbyMember.cs" id="1_fle8m"]
+[ext_resource type="Script" path="res://addons/MLobby/Nodes/LobbyMember.cs" id="1_fle8m"]
 
 [sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_ly2rs"]
 properties/0/path = NodePath(".:peerID")
