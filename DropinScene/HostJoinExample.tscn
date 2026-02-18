@@ -1,0 +1,67 @@
+[gd_scene format=3 uid="uid://brb5lvtxm75x6"]
+
+[ext_resource type="Script" uid="uid://dar4gvyc0t24l" path="res://ExampleScript.cs" id="1_fos0i"]
+[ext_resource type="Script" uid="uid://wqxdyjkp7g15" path="res://addons/MLobby/Nodes/LobbyManager.cs" id="2_3dxm6"]
+[ext_resource type="PackedScene" uid="uid://c8amfxmmxyj51" path="res://addons/MLobby/DropinScene/LobbyMember.tscn" id="3_lgr22"]
+[ext_resource type="Script" uid="uid://jloej37oa12" path="res://addons/MLobby/Nodes/PlayerManager.cs" id="4_trn2v"]
+[ext_resource type="PackedScene" uid="uid://crb5h86y2gr5h" path="res://addons/MLobby/DropinScene/Player.tscn" id="5_03owx"]
+
+[node name="Control" type="PanelContainer" unique_id=1079319651]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -200.0
+offset_right = 150.0
+offset_bottom = 200.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=415023740]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 20
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer" unique_id=539647516]
+layout_mode = 2
+
+[node name="btnHost" type="Button" parent="MarginContainer/GridContainer" unique_id=1112178260]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Host"
+
+[node name="btnJoin" type="Button" parent="MarginContainer/GridContainer" unique_id=1931599656]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Join"
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/GridContainer" unique_id=632320070]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/GridContainer/MarginContainer" unique_id=370338040]
+layout_mode = 2
+horizontal_alignment = 1
+
+[node name="MLobby" type="Node" parent="." unique_id=471806021 node_paths=PackedStringArray("btnHost", "btnJoin", "lobby", "lbl")]
+script = ExtResource("1_fos0i")
+btnHost = NodePath("../MarginContainer/GridContainer/btnHost")
+btnJoin = NodePath("../MarginContainer/GridContainer/btnJoin")
+lobby = NodePath("LobbyManager")
+lbl = NodePath("../MarginContainer/GridContainer/MarginContainer/Label")
+
+[node name="LobbyManager" type="MultiplayerSpawner" parent="MLobby" unique_id=1316778320]
+spawn_path = NodePath(".")
+script = ExtResource("2_3dxm6")
+prefabLobbyMember = ExtResource("3_lgr22")
+metadata/_custom_type_script = "uid://wqxdyjkp7g15"
+
+[node name="PlayerManager" type="MultiplayerSpawner" parent="MLobby" unique_id=1543480674 node_paths=PackedStringArray("lobby")]
+spawn_path = NodePath(".")
+script = ExtResource("4_trn2v")
+lobby = NodePath("../LobbyManager")
+playerPrefab = ExtResource("5_03owx")
+metadata/_custom_type_script = "uid://jloej37oa12"
