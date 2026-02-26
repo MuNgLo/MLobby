@@ -45,11 +45,11 @@ public partial class PlayerManager : MultiplayerSpawner
         LobbyEvents.OnLobbyMemberValidated += WhenLobbyMemberValidate;
     }
 
-    private void WhenChildEnterTree(Node node)
+    private protected virtual void WhenChildEnterTree(Node node)
     {
         if (!Multiplayer.IsServer())
         {
-            // Process node for clientside player list
+            // Process node for client side player list
             if (node is MLobbyPlayer pl)
             {
                 if (!players.Exists(p => p.PeerID == pl.PeerID))
